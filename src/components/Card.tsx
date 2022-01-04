@@ -6,6 +6,7 @@ import {
   Skeleton,
   SkeletonText,
 } from '@chakra-ui/react';
+import { stringify } from 'querystring';
 import { useState } from 'react';
 
 interface Card {
@@ -14,7 +15,6 @@ interface Card {
   url: string;
   ts: number;
 }
-
 interface CardProps {
   data: Card;
   viewImage: (url: string) => void;
@@ -30,7 +30,7 @@ export function Card({ data, viewImage }: CardProps): JSX.Element {
           src={data.url}
           alt={data.title}
           objectFit="cover"
-          w="max"
+          w="full"
           h={48}
           borderTopRadius="md"
           onClick={() => viewImage(data.url)}
@@ -38,7 +38,6 @@ export function Card({ data, viewImage }: CardProps): JSX.Element {
           cursor="pointer"
         />
       </Skeleton>
-
       <Box pt={5} pb={4} px={6}>
         {isLoading ? (
           <>

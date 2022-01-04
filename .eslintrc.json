@@ -39,6 +39,20 @@
     "prettier/prettier": "error",
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
+    "overrides": [
+      {
+        // enable the rule specifically for TypeScript files
+        "files": [
+          "*.ts",
+          "*.tsx"
+        ],
+        "rules": {
+          "@typescript-eslint/explicit-function-return-type": [
+            "error"
+          ]
+        }
+      }
+    ],
     "jsx-a11y/anchor-is-valid": [
       "error",
       {
